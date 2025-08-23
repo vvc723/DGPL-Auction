@@ -1,0 +1,604 @@
+[
+  {
+    "name": "Virat Kohli",
+    "year": 3,
+    "category": "Batsman",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/2.png"
+  },
+  {
+    "name": "Rohit Sharma",
+    "year": 3,
+    "category": "Batsman",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/6.png"
+  },
+  {
+    "name": "David Warner",
+    "year": 3,
+    "category": "Batsman",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2024/214.png"
+  },
+  {
+    "name": "Kane Williamson",
+    "year": 3,
+    "category": "Batsman",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2024/65.png"
+  },
+  {
+    "name": "Jos Buttler",
+    "year": 3,
+    "category": "Wicket-Keeper",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/182.png"
+  },
+  {
+    "name": "Jonny Bairstow",
+    "year": 3,
+    "category": "Wicket-Keeper",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/216.png"
+  },
+  {
+    "name": "Quinton de Kock",
+    "year": 3,
+    "category": "Wicket-Keeper",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/170.png"
+  },
+  {
+    "name": "Ravindra Jadeja",
+    "year": 3,
+    "category": "All-Rounder",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/46.png"
+  },
+  {
+    "name": "Glenn Maxwell",
+    "year": 3,
+    "category": "All-Rounder",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/28.png"
+  },
+  {
+    "name": "Ben Stokes",
+    "year": 3,
+    "category": "All-Rounder",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2023/177.png"
+  },
+  {
+    "name": "Andre Russell",
+    "year": 3,
+    "category": "All-Rounder",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/141.png"
+  },
+  {
+    "name": "Sunil Narine",
+    "year": 3,
+    "category": "All-Rounder",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/156.png"
+  },
+  {
+    "name": "Jasprit Bumrah",
+    "year": 3,
+    "category": "Bowler",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/9.png"
+  },
+  {
+    "name": "Mohammed Shami",
+    "year": 3,
+    "category": "Bowler",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/47.png"
+  },
+  {
+    "name": "Bhuvneshwar Kumar",
+    "year": 3,
+    "category": "Bowler",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/15.png"
+  },
+  {
+    "name": "Yuzvendra Chahal",
+    "year": 3,
+    "category": "Bowler",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/10.png"
+  },
+  {
+    "name": "Pat Cummins",
+    "year": 3,
+    "category": "Bowler",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/33.png"
+  },
+  {
+    "name": "Mitchell Starc",
+    "year": 3,
+    "category": "Bowler",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/31.png"
+  },
+  {
+    "name": "Trent Boult",
+    "year": 3,
+    "category": "Bowler",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/66.png"
+  },
+  {
+    "name": "Rashid Khan",
+    "year": 3,
+    "category": "Bowler",
+    "basePrice": 1.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/218.png"
+  },
+
+  {
+    "name": "KL Rahul",
+    "year": 2,
+    "category": "Batsman",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/19.png"
+  },
+  {
+    "name": "Suryakumar Yadav",
+    "year": 2,
+    "category": "Batsman",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/174.png"
+  },
+  {
+    "name": "Shreyas Iyer",
+    "year": 2,
+    "category": "Batsman",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/12.png"
+  },
+  {
+    "name": "Travis Head",
+    "year": 2,
+    "category": "Batsman",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/37.png"
+  },
+  {
+    "name": "Aiden Markram",
+    "year": 2,
+    "category": "Batsman",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/287.png"
+  },
+  {
+    "name": "Rishabh Pant",
+    "year": 2,
+    "category": "Wicket-Keeper",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/18.png"
+  },
+  {
+    "name": "Sanju Samson",
+    "year": 2,
+    "category": "Wicket-Keeper",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/190.png"
+  },
+  {
+    "name": "Nicholas Pooran",
+    "year": 2,
+    "category": "Wicket-Keeper",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/136.png"
+  },
+  {
+    "name": "Hardik Pandya",
+    "year": 2,
+    "category": "All-Rounder",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/54.png"
+  },
+  {
+    "name": "Axar Patel",
+    "year": 2,
+    "category": "All-Rounder",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/110.png"
+  },
+  {
+    "name": "Mitchell Marsh",
+    "year": 2,
+    "category": "All-Rounder",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/40.png"
+  },
+  {
+    "name": "Sam Curran",
+    "year": 2,
+    "category": "All-Rounder",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/138.png"
+  },
+  {
+    "name": "Daryl Mitchell",
+    "year": 2,
+    "category": "All-Rounder",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2024/83.png"
+  },
+  {
+    "name": "Mohammed Siraj",
+    "year": 2,
+    "category": "Bowler",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/63.png"
+  },
+  {
+    "name": "Kuldeep Yadav",
+    "year": 2,
+    "category": "Bowler",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/14.png"
+  },
+  {
+    "name": "Kagiso Rabada",
+    "year": 2,
+    "category": "Bowler",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/116.png"
+  },
+  {
+    "name": "Jofra Archer",
+    "year": 2,
+    "category": "Bowler",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/181.png"
+  },
+  {
+    "name": "Adil Rashid",
+    "year": 2,
+    "category": "Bowler",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2023/311.png"
+  },
+  {
+    "name": "Shardul Thakur",
+    "year": 2,
+    "category": "All-Rounder",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/105.png"
+  },
+  {
+    "name": "Deepak Chahar",
+    "year": 2,
+    "category": "Bowler",
+    "basePrice": 1,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/91.png"
+  },
+
+  {
+    "name": "Shubman Gill",
+    "year": 1,
+    "category": "Batsman",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/62.png"
+  },
+  {
+    "name": "Yashasvi Jaiswal",
+    "year": 1,
+    "category": "Batsman",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/533.png"
+  },
+  {
+    "name": "Prithvi Shaw",
+    "year": 1,
+    "category": "Batsman",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/51.png"
+  },
+  {
+    "name": "Tilak Varma",
+    "year": 1,
+    "category": "Batsman",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/993.png"
+  },
+  {
+    "name": "Ruturaj Gaikwad",
+    "year": 1,
+    "category": "Batsman",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/102.png"
+  },
+  {
+    "name": "Rinku Singh",
+    "year": 1,
+    "category": "Batsman",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/152.png"
+  },
+  {
+    "name": "Phil Salt",
+    "year": 1,
+    "category": "Wicket-Keeper",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/1220.png"
+  },
+  {
+    "name": "Ishan Kishan",
+    "year": 1,
+    "category": "Wicket-Keeper",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/164.png"
+  },
+  {
+    "name": "Rahmanullah Gurbaz",
+    "year": 1,
+    "category": "Wicket-Keeper",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/641.png"
+  },
+  {
+    "name": "Devon Conway",
+    "year": 1,
+    "category": "Wicket-Keeper",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/601.png"
+  },
+  {
+    "name": "Heinrich Klaasen",
+    "year": 1,
+    "category": "Wicket-Keeper",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/202.png"
+  },
+  {
+    "name": "Cameron Green",
+    "year": 1,
+    "category": "All-Rounder",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2024/550.png"
+  },
+  {
+    "name": "Marco Jansen",
+    "year": 1,
+    "category": "All-Rounder",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/586.png"
+  },
+  {
+    "name": "Rachin Ravindra",
+    "year": 1,
+    "category": "All-Rounder",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/724.png"
+  },
+  {
+    "name": "Arshdeep Singh",
+    "year": 1,
+    "category": "Bowler",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/125.png"
+  },
+  {
+    "name": "T Natarajan",
+    "year": 1,
+    "category": "Bowler",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/224.png"
+  },
+  {
+    "name": "Umran Malik",
+    "year": 1,
+    "category": "Bowler",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2024/637.png"
+  },
+  {
+    "name": "Ravi Bishnoi",
+    "year": 1,
+    "category": "Bowler",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/520.png"
+  },
+  {
+    "name": "Mujeeb Ur Rahman",
+    "year": 1,
+    "category": "Bowler",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/134.png"
+  },
+  {
+    "name": "Washington Sundar",
+    "year": 1,
+    "category": "All-Rounder",
+    "basePrice": 0.5,
+    "status": "unsold",
+    "image": "https://documents.iplt20.com/ipl/IPLHeadshot2025/20.png"
+  },
+  {
+    "name": "Venkata Chowdary",
+    "year": 4,
+    "category": "All-Rounder",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960466/pfp_-_venkat_chowdary_vpuvox.jpg"
+  },
+  {
+    "name": "Peddi Sai Preetham",
+    "year": 4,
+    "category": "Batsman",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960444/20250823_111202_-_Sai_Preetham_Peddi_uz2x8a.jpg"
+  },
+  {
+    "_id": "66f3aa0000000000000000a4",
+    "name": "Narendar",
+    "year": 4,
+    "category": "Bowler",
+    "basePrice": 2,
+    "status": "unsold",
+    "isCaptain": true,
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960418/IMG-20250420-WA0006_2_-_MALOTHU_NARENDAR_elvffj.jpg"
+  },
+  {
+    "_id": "66f3aa0000000000000000a2",
+    "name": "NARAYANA RAJU",
+    "year": 4,
+    "category": "All-Rounder",
+    "basePrice": 2,
+    "status": "unsold",
+    "isCaptain": true,
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960433/IMG_0430_-_ACHUTH_RAJU_jbhkk0.jpg"
+  },
+  {
+    "name": "Santhosh Naik",
+    "year": 4,
+    "category": "All-Rounder",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960478/IMG_20240416_120104_-_Santhosh_naik_baqflv.jpg"
+  },
+  {
+    "_id": "66f3aa0000000000000000a1",
+    "name": "Shashi Nayak",
+    "year": 4,
+    "category": "Batsman",
+    "basePrice": 2,
+    "status": "unsold",
+    "isCaptain": true,
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960487/Screenshot_20250823_122130_Instagram_-_Shashi_Sharath_dfbqpy.jpg"
+  },
+  {
+    "name": "Bhavani",
+    "year": 4,
+    "category": "All-Rounder",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960452/IMG_2452_-_Bhavani_Shankar_Daspe_iuawbz.jpg"
+  },
+  {
+    "name": "Vishnu",
+    "year": 4,
+    "category": "Batsman",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960574/DSC_0308_-_Vishnu_Prasad_uexwrg.jpg"
+  },
+  {
+    "name": "Rahul",
+    "year": 4,
+    "category": "Batsman",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960553/IMG_1781_-_Rahul_Banoth_i7w0f8.jpg"
+  },
+  {
+    "_id": "66f3aa0000000000000000a3",
+    "name": "Rithwik Reddy",
+    "year": 4,
+    "category": "Wicket-Keeper",
+    "basePrice": 2,
+    "status": "unsold",
+    "isCaptain": true,
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960553/20250330_090109_-_Rithwik_Reddy_cx8gvt.jpg"
+  },
+  {
+    "name": "PRAKASH REDDY",
+    "year": 4,
+    "category": "All-Rounder",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960457/IMG-20250823-WA0010_-_Nitya_Prakash_Reddy_Pulagam_spq2pm.jpg"
+  },
+  {
+    "name": "Rohith",
+    "year": 4,
+    "category": "Batsman",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960518/IMG_20240920_175735_-_ROHITH_BOINI_nzfxok.jpg"
+  },
+  {
+    "name": "Siddhartha Reddy",
+    "year": 4,
+    "category": "Batsman",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960496/WhatsApp_Image_2025-08-23_at_6.57.43_PM_1_dcevid.jpg"
+  },
+  {
+    "name": "Rahul",
+    "year": 4,
+    "category": "All-Rounder",
+    "basePrice": 2,
+    "status": "unsold",
+    "image": "https://res.cloudinary.com/dmhuymofw/image/upload/v1755960491/WhatsApp_Image_2025-08-23_at_6.43.33_PM_1_oohzly.jpg"
+  }
+]
