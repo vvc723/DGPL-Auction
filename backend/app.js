@@ -89,6 +89,11 @@ app.use('/api/v1/players', playerRouter);
 app.use('/api/v1/teams', teamRouter);
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/auction', auctionRouter);
+
+// Simple health endpoint for origin/proxy checks
+app.get('/healthz', (req, res) => {
+  res.status(200).json({ status: 'ok' });
+});
 // Handle undefined routes
 app.use((req, res, next) => {
   const error = new Error(`Can't find ${req.originalUrl} on this server!`);
