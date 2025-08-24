@@ -23,9 +23,10 @@ app.use((req, res, next) => {
 // CORS: allow production domains and Vercel preview
 const allowedOrigins = [
   'https://dgpl-auction.tech',
+  'https://www.dgpl-auction.tech',
   'https://api.dgpl-auction.tech',
   // Example preview URL; adjust the subpath to your actual Vercel preview domain as needed
-  'https://dgpl-auction-r5ynomr3z-vvc723s-projects.vercel.app',
+  'https://dgpl-auction-dmajgf0e7-vvc723s-projects.vercel.app',
 ];
 
 app.use(
