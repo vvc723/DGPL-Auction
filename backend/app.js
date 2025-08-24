@@ -20,7 +20,26 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(cors()); // this will accept requests from cross orgins ..
+// CORS: allow production domains and Vercel preview
+const allowedOrigins = [
+  'https://dgpl-auction.tech',
+  'https://api.dgpl-auction.tech',
+  // Example preview URL; adjust the subpath to your actual Vercel preview domain as needed
+  'https://dgpl-auction-r5ynomr3z-vvc723s-projects.vercel.app',
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // Allow non-browser requests (no origin) and all allowed origins
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(new Error('Not allowed by CORS')); // will be handled by global error handler
+    },
+    credentials: true,
+  })
+); // this will accept requests from cross orgins ..
 app.use(helmet());
 
 //body parser also limits the data to 10 kb ...
