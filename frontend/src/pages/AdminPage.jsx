@@ -33,12 +33,15 @@ export default function AdminPage() {
       setPlayers([]);
       try {
         // Fetch all players for the year (exclude sold later client-side)
-        const res = await fetch(`/api/v1/players?year=${selectedYear}`, {
-          headers: {
-            "Content-Type": "application/json",
-            ...(token ? { Authorization: `Bearer ${token}` } : {}),
-          },
-        });
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/v1/players?year=${selectedYear}`,
+          {
+            headers: {
+              "Content-Type": "application/json",
+              ...(token ? { Authorization: `Bearer ${token}` } : {}),
+            },
+          }
+        );
         if (!res.ok) throw new Error(`Failed to load players (${res.status})`);
         const data = await res.json();
         if (!aborted) setPlayers(data.data?.players || []);
@@ -151,12 +154,15 @@ export default function AdminPage() {
   const refreshYearPlayers = async () => {
     if (selectedYear == null) return;
     try {
-      const res = await fetch(`/api/v1/players?year=${selectedYear}`, {
-        headers: {
-          "Content-Type": "application/json",
-          ...(token ? { Authorization: `Bearer ${token}` } : {}),
-        },
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/v1/players?year=${selectedYear}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            ...(token ? { Authorization: `Bearer ${token}` } : {}),
+          },
+        }
+      );
       if (res.ok) {
         const data = await res.json();
         setPlayers(data.data?.players || []);
@@ -174,14 +180,17 @@ export default function AdminPage() {
     setAuctionMessage(null);
     setActionLoadingId(playerId);
     try {
-      const res = await fetch("/api/v1/auction/start", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ playerId }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/v1/auction/start`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ playerId }),
+        }
+      );
       if (!res.ok) {
         const txt = await res.text();
         throw new Error(txt || "Failed to start auction");
@@ -218,18 +227,21 @@ export default function AdminPage() {
     setActionLoadingId(playerId);
     setAuctionMessage(null);
     try {
-      const res = await fetch("/api/v1/auction/sell", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          playerId,
-          teamId: winningTeamId,
-          finalBid: finalBidPrice,
-        }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/v1/auction/sell`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            playerId,
+            teamId: winningTeamId,
+            finalBid: finalBidPrice,
+          }),
+        }
+      );
       if (!res.ok) throw new Error(await res.text());
       setAuctionMessage("Player sold successfully.");
       // Optimistic local update (will be confirmed / enriched by socket event)
@@ -256,14 +268,17 @@ export default function AdminPage() {
     setActionLoadingId(playerId);
     setAuctionMessage(null);
     try {
-      const res = await fetch("/api/v1/auction/unsold", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({ playerId }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/v1/auction/unsold`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({ playerId }),
+        }
+      );
       if (!res.ok) throw new Error(await res.text());
       setAuctionMessage("Player marked unsold.");
       // Optimistic local status update; socket event will also adjust

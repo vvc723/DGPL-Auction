@@ -14,7 +14,9 @@ const PlayerProfilePage = () => {
       setLoading(true);
       setError(null);
       try {
-        const res = await fetch(`/api/v1/players/${playerId}`);
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/v1/players/${playerId}`
+        );
         if (!res.ok) throw new Error("Failed to load player");
         const data = await res.json();
         const raw =

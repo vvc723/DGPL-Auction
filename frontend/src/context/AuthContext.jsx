@@ -17,11 +17,14 @@ export default function AuthProvider({ children }) {
 
   const login = useCallback(async (email, password) => {
     try {
-      const res = await fetch("/api/v1/users/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/v1/users/login`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        }
+      );
       if (!res.ok) {
         let message = "Login failed";
         try {
@@ -65,7 +68,9 @@ export default function AuthProvider({ children }) {
     const verify = async () => {
       if (!token || !user?._id) return;
       try {
-        const res = await fetch(`/api/v1/users/${user._id}`);
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/v1/users/${user._id}`
+        );
         if (res.status === 404) {
           console.warn(
             "[Auth] Stored user no longer exists (likely reseed); clearing auth"

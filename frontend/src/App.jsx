@@ -200,7 +200,9 @@ function App() {
     let ignore = false;
     const loadCurrent = async () => {
       try {
-        const res = await fetch("/api/v1/auction/current");
+        const res = await fetch(
+          `${import.meta.env.VITE_API_URL}/api/v1/auction/current`
+        );
         if (!res.ok) return;
         const data = await res.json();
         const incoming = data?.data?.player;
@@ -226,7 +228,7 @@ function App() {
     let abort = false;
     const fetchTeams = async () => {
       try {
-        const res = await fetch("/api/v1/teams");
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/teams`);
         if (!res.ok) return;
         const data = await res.json();
         const fetched = data?.data?.docs || data?.data?.teams || [];

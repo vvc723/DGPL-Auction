@@ -30,10 +30,11 @@ const AuctionSummary = () => {
         const headers = token
           ? { Authorization: `Bearer ${token}` }
           : undefined;
+        const base = import.meta.env.VITE_API_URL;
         const [teamsRes, playersRes, unsoldRes] = await Promise.all([
-          fetch("/api/v1/teams", { headers }),
-          fetch("/api/v1/players", { headers }),
-          fetch("/api/v1/players?status=unsold", { headers }),
+          fetch(`${base}/api/v1/teams`, { headers }),
+          fetch(`${base}/api/v1/players`, { headers }),
+          fetch(`${base}/api/v1/players?status=unsold`, { headers }),
         ]);
         if (!teamsRes.ok || !playersRes.ok || !unsoldRes.ok) {
           throw new Error("Failed to load auction data");
