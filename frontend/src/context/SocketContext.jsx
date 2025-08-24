@@ -40,8 +40,7 @@ const SocketProvider = ({ children }) => {
     };
     if (token) options.auth = { token };
 
-    const host = window.location.hostname; // works for LAN IP or localhost
-    const socket = io(`http://${host}:7777`, options);
+    const socket = io(import.meta.env.VITE_API_URL, options);
     socketRef.current = socket;
     setSocketInstance(socket); // trigger context update immediately
     console.log("[SocketProvider] Created socket instance");
