@@ -20,14 +20,19 @@ app.use((req, res, next) => {
   next();
 });
 
-// CORS: allow production domains and Vercel preview
-const allowedOrigins = [
+// CORS: allow production domains and Vercel preview; include localhost in development
+const productionOrigins = [
   'https://dgpl-auction.tech',
   'https://www.dgpl-auction.tech',
   'https://api.dgpl-auction.tech',
   // Example preview URL; adjust the subpath to your actual Vercel preview domain as needed
   'https://dgpl-auction-dmajgf0e7-vvc723s-projects.vercel.app',
 ];
+const devOrigins = ['http://localhost:5173', 'http://localhost:3000'];
+const allowedOrigins =
+  process.env.NODE_ENV === 'production'
+    ? productionOrigins
+    : productionOrigins.concat(devOrigins);
 
 app.use(
   cors({
