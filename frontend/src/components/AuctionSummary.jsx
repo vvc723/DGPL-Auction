@@ -99,15 +99,24 @@ const AuctionSummary = () => {
 
   const selectedTeamPlayers = useMemo(() => {
     if (!selectedTeam) return [];
-    return players
-      .filter((p) => {
-        const teamId =
-          typeof p.team === "object" && p.team !== null
-            ? p.team._id || p.team.id
-            : p.team;
-        return teamId === selectedTeam._id;
-      })
-      .sort((a, b) => a.name.localeCompare(b.name));
+    const byId = new Map(players.map((p) => [p._id || p.id, p]));
+    const baseList = Array.isArray(selectedTeam.players)
+      ? selectedTeam.players
+      : [];
+    const merged = baseList.map((tp) => byId.get(tp._id || tp.id) || tp);
+    // Add any players[] that point to this team but not present in team.players yet
+    const extra = players.filter((p) => {
+      const teamId =
+        typeof p.team === "object" && p.team !== null
+          ? p.team._id || p.team.id
+          : p.team;
+      const id = p._id || p.id;
+      return (
+        teamId === selectedTeam._id &&
+        !merged.some((m) => (m._id || m.id) === id)
+      );
+    });
+    return merged.concat(extra).sort((a, b) => a.name.localeCompare(b.name));
   }, [selectedTeam, players]);
 
   if (loading) {
