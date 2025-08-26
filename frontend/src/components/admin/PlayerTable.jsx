@@ -33,6 +33,9 @@ export default function PlayerTable({
               Current Bid
             </th>
             <th className="px-4 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+              Leading Team
+            </th>
+            <th className="px-4 py-2 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
               Status
             </th>
             <th className="px-4 py-2" />
@@ -51,6 +54,16 @@ export default function PlayerTable({
                 : isLive
                 ? `${p.basePrice} Cr`
                 : "—";
+            const latestBid = hasBids
+              ? p.bidHistory[p.bidHistory.length - 1]
+              : null;
+            const leadingTeamName = isLive
+              ? latestBid?.teamName ||
+                (latestBid?.team && latestBid.team.name) ||
+                p.teamName ||
+                (p.team && p.team.name) ||
+                "—"
+              : "—";
             return (
               <tr
                 key={p._id}
@@ -70,6 +83,9 @@ export default function PlayerTable({
                 </td>
                 <td className="px-4 py-2 text-sm text-gray-800 font-semibold">
                   {currentBid}
+                </td>
+                <td className="px-4 py-2 text-sm text-gray-700">
+                  {leadingTeamName}
                 </td>
                 <td className="px-4 py-2 text-sm text-gray-600">
                   {isLive ? (
