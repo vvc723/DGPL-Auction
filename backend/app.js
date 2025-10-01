@@ -28,7 +28,13 @@ const productionOrigins = [
   // Example preview URL; adjust the subpath to your actual Vercel preview domain as needed
   'https://dgpl-auction-dmajgf0e7-vvc723s-projects.vercel.app',
 ];
-const devOrigins = ['http://localhost:5173', 'http://localhost:3000'];
+// Include common localhost ports plus explicit LAN development host (mobile testing)
+const devOrigins = [
+  'http://localhost:5173',
+  'http://localhost:3000',
+  // Add your machine's LAN IP running the Vite dev server so phones on same network can access
+  'http://192.168.137.1:5173',
+];
 const allowedOrigins =
   process.env.NODE_ENV === 'production'
     ? productionOrigins

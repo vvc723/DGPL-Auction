@@ -320,8 +320,9 @@ io.on('connection', (socket) => {
   });
 });
 
-httpServer.listen(PORT, () => {
-  console.log(`DGPL Auction server listening on ${PORT}`);
+// Listen on 0.0.0.0 so that LAN/mobile devices can reach the server
+httpServer.listen(PORT, '0.0.0.0', () => {
+  console.log(`DGPL Auction server listening on ${PORT} (0.0.0.0)`);
 });
 
 module.exports = { app, io, httpServer };

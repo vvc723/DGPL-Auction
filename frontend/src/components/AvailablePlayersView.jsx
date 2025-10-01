@@ -14,13 +14,14 @@ const AvailablePlayersView = ({ availablePlayers = [] }) => {
       {sorted.length === 0 && (
         <p className="text-sm text-gray-400 mb-2">No available players.</p>
       )}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Use explicit single column on mobile so cards stretch full width instead of shrinking to content */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {sorted.map((player) => {
           const isCaptain = !!player.isCaptain;
           return (
             <div
               key={player._id || player.name}
-              className={`relative flex items-center gap-4 sm:gap-5 bg-gradient-to-r from-gray-800/85 to-gray-900/85 border rounded-2xl p-4 transition-all duration-300 ${
+              className={`relative w-full flex items-center gap-4 sm:gap-5 bg-gradient-to-r from-gray-800/85 to-gray-900/85 border rounded-2xl p-4 transition-all duration-300 ${
                 isCaptain
                   ? "border-yellow-500/70 hover:border-yellow-400 hover:shadow-yellow-500/10"
                   : "border-gray-700 hover:border-indigo-400/60 hover:shadow-indigo-500/10"

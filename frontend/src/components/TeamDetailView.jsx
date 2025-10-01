@@ -75,13 +75,14 @@ const TeamDetailView = ({ team, teamPlayers = [] }) => {
       <h3 className="text-lg font-semibold text-white mb-4 tracking-wide">
         Players ({teamPlayers.length})
       </h3>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Single column on mobile for full-width rows */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {teamPlayers.map((player) => {
           const isCaptain = player.isCaptain;
           return (
             <div
               key={player._id}
-              className={`relative flex items-center gap-5 bg-gradient-to-r from-gray-800/85 to-gray-900/85 border rounded-2xl p-4 transition-all duration-300 ${
+              className={`relative w-full flex items-center gap-5 bg-gradient-to-r from-gray-800/85 to-gray-900/85 border rounded-2xl p-4 transition-all duration-300 ${
                 isCaptain
                   ? "border-yellow-500/70 hover:border-yellow-400 hover:shadow-yellow-500/10"
                   : "border-gray-700 hover:border-emerald-500/60 hover:shadow-emerald-500/10"
