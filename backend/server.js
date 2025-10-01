@@ -235,47 +235,90 @@ io.on('connection', (socket) => {
       }
       console.log('[Bid] Team budget OK budget=%s', team.budget);
 
-      // Apply bid with minimal DB roundtrips
-      const updRes = await Player.updateOne(
-        { _id: livePlayer._id },
-        {
-          $push: {
-            bidHistory: {
-              team: team._id,
-              bidAmount: desiredBidAmount,
-            },
-          },
-          $set: {
-            finalBidPrice: desiredBidAmount,
-            team: team._id, // leading team reference
-          },
-        }
-      );
+      // Atomic conditional update to prevent race conditions:
+      // Only perform the push if the last bid (or basePrice if none) still matches our computed currentHighestBid.
+      // We express two scenarios:
+      //  1. No prior bids: bidHistory length == 0 AND currentHighestBid == basePrice
+      //  2. Has bids: last element bidHistory[-1].bidAmount == currentHighestBid
+      // Use $expr + $function or arrayElemAt depending on Mongo capability. We'll stick to $expr + $cond + arrayElemAt.
 
-      if (!updRes || updRes.modifiedCount === 0) {
+      const expectedHistoryLength = livePlayer.bidHistory?.length || 0;
+      // For existing history capture last bid amount (from our read) to validate atomically
+      let lastObservedBid = null;
+      if (expectedHistoryLength > 0) {
+        lastObservedBid =
+          livePlayer.bidHistory[expectedHistoryLength - 1].bidAmount;
+      }
+      const filter = {
+        _id: livePlayer._id,
+        status: 'in_auction',
+        $expr: {
+          $and: [
+            { $eq: [{ $size: '$bidHistory' }, expectedHistoryLength] },
+            expectedHistoryLength === 0
+              ? { $eq: [{ $ifNull: ['$basePrice', 0] }, currentHighestBid] }
+              : {
+                  $eq: [
+                    {
+                      $let: {
+                        vars: {
+                          lastIndex: {
+                            $subtract: [{ $size: '$bidHistory' }, 1],
+                          },
+                        },
+                        in: {
+                          $arrayElemAt: [
+                            '$bidHistory.bidAmount',
+                            '$$lastIndex',
+                          ],
+                        },
+                      },
+                    },
+                    lastObservedBid,
+                  ],
+                },
+          ],
+        },
+      };
+
+      const update = {
+        $push: {
+          bidHistory: {
+            team: team._id,
+            bidAmount: desiredBidAmount,
+          },
+        },
+        $set: {
+          finalBidPrice: desiredBidAmount,
+          team: team._id,
+        },
+      };
+
+      const updatedPlayer = await Player.findOneAndUpdate(filter, update, {
+        new: true,
+        projection:
+          'name image category year basePrice status team finalBidPrice bidHistory',
+      })
+        .populate({ path: 'bidHistory.team', select: 'name' })
+        .populate({ path: 'team', select: 'name' });
+
+      if (!updatedPlayer) {
         socket.emit('server:bid_error', {
-          message: 'Bid race condition, retry',
+          message: 'The auction has moved on. Please bid again.',
         });
-        console.log('[Bid] Rejected: race condition after update');
-        return; // race condition safeguard
+        console.log(
+          '[Bid] Atomic update failed (stale currentHighestBid) player=%s expectedCurrent=%s',
+          livePlayer._id,
+          currentHighestBid
+        );
+        return;
       }
       console.log(
-        '[Bid] Bid persisted playerId=%s finalBidPrice=%s leadingTeam=%s',
-        livePlayer._id,
+        '[Bid] Atomic bid persisted playerId=%s finalBidPrice=%s leadingTeam=%s',
+        updatedPlayer._id,
         desiredBidAmount,
         team.name || team._id
       );
-
-      // Load updated player (minimal fields) so clients can update bidHistory/UI state
-      let updatedPlayer;
-      try {
-        updatedPlayer = await Player.findById(livePlayer._id)
-          .select(
-            'name image category year basePrice status team finalBidPrice bidHistory'
-          )
-          .populate({ path: 'bidHistory.team', select: 'name' })
-          .populate({ path: 'team', select: 'name' });
-      } catch (_) {}
 
       // Prepare broadcast payload
       const payload = {
@@ -290,20 +333,18 @@ io.on('connection', (socket) => {
           timestamp: Date.now(),
         },
       };
-      if (updatedPlayer) {
-        let plain = updatedPlayer.toObject({ getters: true, virtuals: false });
-        if (Array.isArray(plain.bidHistory)) {
-          plain.bidHistory = plain.bidHistory.map((b) => ({
-            ...b,
-            teamName: b.team?.name || b.teamName || 'Unknown Team',
-          }));
-        }
-        if (plain.team && plain.team.name) plain.teamName = plain.team.name;
-        payload.player = plain; // full snapshot for UI merge
-        payload.bidHistoryLength = Array.isArray(plain.bidHistory)
-          ? plain.bidHistory.length
-          : 0;
+      let plain = updatedPlayer.toObject({ getters: true, virtuals: false });
+      if (Array.isArray(plain.bidHistory)) {
+        plain.bidHistory = plain.bidHistory.map((b) => ({
+          ...b,
+          teamName: b.team?.name || b.teamName || 'Unknown Team',
+        }));
       }
+      if (plain.team && plain.team.name) plain.teamName = plain.team.name;
+      payload.player = plain; // full snapshot for UI merge
+      payload.bidHistoryLength = Array.isArray(plain.bidHistory)
+        ? plain.bidHistory.length
+        : 0;
       io.emit('server:new_bid', payload); // broadcast to all including bidder
       console.log(
         '[Bid] Broadcast server:new_bid amount=%s playerId=%s',
