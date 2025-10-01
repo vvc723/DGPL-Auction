@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { formatAcademicYear } from "../utils/formatters";
 
 const RecentSoldView = ({ soldPlayers = [], teamMap }) => {
-  const formatCr = (val) => (val || val === 0 ? `${val} Cr` : "-");
+  const formatPts = (val) => (val || val === 0 ? `${val} Pts` : "-");
   return (
     <div>
       {soldPlayers.length === 0 && (
@@ -92,7 +92,7 @@ const RecentSoldView = ({ soldPlayers = [], teamMap }) => {
                 ) : (
                   <>
                     <span className="text-lg sm:text-xl font-extrabold text-emerald-400 tracking-wide">
-                      {formatCr(player.finalBidPrice)}
+                      {formatPts(player.finalBidPrice)}
                     </span>
                     <span className="mt-0.5 text-[10px] sm:text-[11px] uppercase text-emerald-500/70 font-semibold tracking-wider">
                       Bid

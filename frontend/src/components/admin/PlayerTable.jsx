@@ -50,9 +50,9 @@ export default function PlayerTable({
             const isConfirmingUnsold = confirmUnsoldId === p._id;
             const currentBid =
               isLive && hasBids
-                ? `${p.bidHistory[p.bidHistory.length - 1].bidAmount} Cr`
+                ? `${p.bidHistory[p.bidHistory.length - 1].bidAmount} Pts`
                 : isLive
-                ? `${p.basePrice} Cr`
+                ? `${p.basePrice} Pts`
                 : "—";
             const latestBid = hasBids
               ? p.bidHistory[p.bidHistory.length - 1]
@@ -79,7 +79,7 @@ export default function PlayerTable({
                   {p.category || "-"}
                 </td>
                 <td className="px-4 py-2 text-sm text-gray-600">
-                  ₹{p.basePrice != null ? `${p.basePrice} Cr` : "—"}
+                  {p.basePrice != null ? `${p.basePrice} Pts` : "—"}
                 </td>
                 <td className="px-4 py-2 text-sm text-gray-800 font-semibold">
                   {currentBid}

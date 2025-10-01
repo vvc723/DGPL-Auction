@@ -8,7 +8,7 @@
   {
     "name": "Chennai Captain",
     "email": "captain.chennai@dgplauction.com",
-    "password": "CaptainPass1",
+    "password": "CaptainPassCSK1",
     "role": "captain",
     "team": "66f10aa2a1b2c3d4e5f60111",
     "playerProfile": "66f200000000000000000001"
@@ -16,7 +16,7 @@
   {
     "name": "Mumbai Captain",
     "email": "captain.mumbai@dgplauction.com",
-    "password": "CaptainPass2",
+    "password": "CaptainPassMI2",
     "role": "captain",
     "team": "66f10aa2a1b2c3d4e5f60112",
     "playerProfile": "66f200000000000000000002"
@@ -24,15 +24,15 @@
   {
     "name": "Delhi Captain",
     "email": "captain.delhi@dgplauction.com",
-    "password": "CaptainPass3",
+    "password": "CaptainPassDC3",
     "role": "captain",
     "team": "66f10aa2a1b2c3d4e5f60113",
     "playerProfile": "66f200000000000000000003"
   },
   {
-    "name": "RCB Captain",
-    "email": "captain.rcb@dgplauction.com",
-    "password": "CaptainPass4",
+    "name": "SRH Captain",
+    "email": "captain.srh@dgplauction.com",
+    "password": "CaptainPassSRH4",
     "role": "captain",
     "team": "66f10aa2a1b2c3d4e5f60114",
     "playerProfile": "66f200000000000000000004"

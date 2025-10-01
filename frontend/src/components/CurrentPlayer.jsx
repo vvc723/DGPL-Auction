@@ -203,8 +203,15 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
             Current Bid
           </h3>
           <div className="flex items-end gap-4 flex-wrap">
-            <span className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 drop-shadow">
-              {currentBid != null ? `${currentBid} Cr` : "--"}
+            <span className="flex items-baseline gap-1 text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-amber-400 to-yellow-500 drop-shadow">
+              <span className="text-4xl font-black leading-none">
+                {currentBid != null ? currentBid : "--"}
+              </span>
+              {currentBid != null && (
+                <span className="text-xl font-extrabold tracking-wide opacity-90">
+                  Pts
+                </span>
+              )}
             </span>
             <div className="flex flex-col">
               <span className="text-xs font-semibold text-gray-400 uppercase">
@@ -225,7 +232,7 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
                   }`}
                 >
                   {typeof userTeamBudget === "number"
-                    ? `${userTeamBudget.toFixed(2).replace(/\.00$/, "")} Cr`
+                    ? `${userTeamBudget.toFixed(2).replace(/\.00$/, "")} Pts`
                     : "—"}
                 </span>
               </div>
@@ -259,8 +266,11 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
                     )}
                     {bid.teamName || "Unknown Team"}
                   </span>
-                  <span className="text-yellow-300 font-semibold">
-                    {bid.bidAmount} Cr
+                  <span className="text-yellow-300 font-semibold flex items-baseline gap-1">
+                    <span>{bid.bidAmount}</span>
+                    <span className="text-xs font-bold tracking-wide opacity-80">
+                      Pts
+                    </span>
                   </span>
                 </li>
               );
@@ -314,8 +324,8 @@ const CurrentPlayer = ({ player: livePlayer, teams = [] }) => {
                       <span className="text-[1.15rem] font-black tracking-tight">
                         {nextBidAmount}
                       </span>
-                      <span className="text-[1.15rem] font-black opacity-80">
-                        Cr
+                      <span className="text-base font-extrabold opacity-75 translate-y-[1px]">
+                        Pts
                       </span>
                     </span>
                   </span>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { formatAcademicYear } from "../utils/formatters";
 
 const AvailablePlayersView = ({ availablePlayers = [] }) => {
-  const formatCr = (val) => (val || val === 0 ? `${val} Cr` : "-");
+  const formatPts = (val) => (val || val === 0 ? `${val} Pts` : "-");
   const sorted = availablePlayers
     .slice()
     .sort(
@@ -56,7 +56,7 @@ const AvailablePlayersView = ({ availablePlayers = [] }) => {
             </div>
             <div className="text-right flex flex-col items-end">
               <span className="text-lg sm:text-xl font-extrabold text-indigo-400 tracking-wide">
-                {formatCr(player.basePrice)}
+                {formatPts(player.basePrice)}
               </span>
               <span className="mt-0.5 text-[10px] sm:text-[11px] uppercase text-indigo-400/70 font-semibold tracking-wider">
                 Base

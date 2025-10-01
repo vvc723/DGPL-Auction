@@ -84,7 +84,8 @@ const PlayerProfilePage = () => {
     );
   }
 
-  const { name, image, category, year, status, finalBidPrice } = player;
+  const { name, image, category, year, status, finalBidPrice, isCaptain } =
+    player;
   // Resolve leading / winner team name with fallbacks to last bid entry
   let leadingTeamName = player.team?.name || player.teamName || "";
   if (!leadingTeamName && sortedBids.length > 0) {
@@ -106,6 +107,7 @@ const PlayerProfilePage = () => {
     }
   }
   const wasSold = status === "sold" && typeof finalBidPrice === "number";
+  const isRetained = !!isCaptain; // treat every captain as retained regardless of status field
 
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
@@ -118,9 +120,21 @@ const PlayerProfilePage = () => {
             <span className="text-lg leading-none">←</span>
             <span>Back</span>
           </Link>
-          {wasSold && (
-            <div className="text-sm font-semibold text-green-400 bg-green-900/30 rounded-full px-4 py-1 border border-green-500/30">
-              Sold for {finalBidPrice} Cr
+          {wasSold && !isRetained && (
+            <div className="text-sm font-semibold text-green-400 bg-green-900/30 rounded-full px-4 py-1 border border-green-500/30 flex items-baseline gap-1">
+              <span>Sold for</span>
+              <span className="font-bold text-yellow-300 text-base">
+                {finalBidPrice}
+              </span>
+              <span className="text-[10px] font-bold tracking-wide opacity-80">
+                Pts
+              </span>
+            </div>
+          )}
+          {isRetained && (
+            <div className="text-sm font-semibold text-yellow-300 bg-yellow-900/20 rounded-full px-4 py-1 border border-yellow-500/30 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
+              <span>Retained Captain</span>
             </div>
           )}
         </div>
@@ -153,22 +167,25 @@ const PlayerProfilePage = () => {
                 </div>
               </div>
               <div className="flex flex-col items-end gap-2">
-                <span
-                  className={`text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full border ${
-                    status === "in_auction"
-                      ? "border-amber-400/40 text-amber-300 bg-amber-400/10"
-                      : status === "sold"
-                      ? "border-green-400/40 text-green-300 bg-green-400/10"
-                      : "border-gray-400/30 text-gray-300 bg-gray-400/10"
-                  }`}
-                >
-                  {status?.replace(/_/g, " ")}
-                </span>
+                {!isRetained && (
+                  <span
+                    className={`text-xs font-semibold uppercase tracking-wider px-3 py-1 rounded-full border ${
+                      status === "in_auction"
+                        ? "border-amber-400/40 text-amber-300 bg-amber-400/10"
+                        : status === "sold"
+                        ? "border-green-400/40 text-green-300 bg-green-400/10"
+                        : "border-gray-400/30 text-gray-300 bg-gray-400/10"
+                    }`}
+                  >
+                    {status?.replace(/_/g, " ")}
+                  </span>
+                )}
                 {wasSold && (
                   <div className="text-sm font-semibold text-yellow-300">
                     Winner: {leadingTeamName || "Unknown Team"}
                   </div>
                 )}
+                {/* Removed duplicate retained text line; badge above is sufficient */}
               </div>
             </div>
 
@@ -197,8 +214,11 @@ const PlayerProfilePage = () => {
                           )}
                           {bid.teamName}
                         </span>
-                        <span className="text-yellow-300 font-semibold">
-                          {bid.bidAmount} Cr
+                        <span className="text-yellow-300 font-semibold flex items-baseline gap-1">
+                          <span>{bid.bidAmount}</span>
+                          <span className="text-[10px] font-bold tracking-wide opacity-80">
+                            Pts
+                          </span>
                         </span>
                       </li>
                     );

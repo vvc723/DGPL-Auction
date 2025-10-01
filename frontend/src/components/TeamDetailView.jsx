@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { formatAcademicYear } from "../utils/formatters";
 
 const TeamDetailView = ({ team, teamPlayers = [] }) => {
-  const formatCr = (val) => (val || val === 0 ? `${val} Cr` : "-");
+  const formatPts = (val) => (val || val === 0 ? `${val} Pts` : "-");
 
   const categoryBreakdown = useMemo(() => {
     return teamPlayers.reduce((acc, p) => {
@@ -39,7 +39,7 @@ const TeamDetailView = ({ team, teamPlayers = [] }) => {
             Remaining Budget
           </h5>
           <p className="text-2xl font-bold text-yellow-400">
-            {formatCr(team.budget)}
+            {formatPts(team.budget)}
           </p>
         </div>
         <div className="bg-gray-800/70 border border-gray-700 rounded-xl p-4">
@@ -47,7 +47,7 @@ const TeamDetailView = ({ team, teamPlayers = [] }) => {
             Highest Bid
           </h5>
           <p className="text-2xl font-bold text-white">
-            {formatCr(highestBid)}
+            {formatPts(highestBid)}
           </p>
         </div>
       </div>
@@ -139,7 +139,7 @@ const TeamDetailView = ({ team, teamPlayers = [] }) => {
                 ) : (
                   <>
                     <span className="text-lg sm:text-xl font-extrabold text-emerald-400 tracking-wide">
-                      {formatCr(player.finalBidPrice)}
+                      {formatPts(player.finalBidPrice)}
                     </span>
                     <span className="mt-0.5 text-[10px] sm:text-[11px] uppercase text-emerald-500/70 font-semibold tracking-wider">
                       Bid

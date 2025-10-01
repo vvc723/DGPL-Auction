@@ -12,7 +12,7 @@ export default function SoldBanner({ name, teamName, amount }) {
         <span className="font-semibold text-white">{teamName || "—"}</span>
       </p>
       <div className="text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-400 drop-shadow">
-        {amount != null ? `${amount} Cr` : "--"}
+        {amount != null ? `${amount} Pts` : "--"}
       </div>
       <p className="mt-4 text-xs uppercase tracking-wider text-green-200 opacity-80">
         Next player will appear shortly...
